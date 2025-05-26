@@ -27,7 +27,7 @@ git push -u origin main               # 推送到远程 main 分支
 git pull origin main                  # 拉取远程分支最新代码，避免冲突
 git add .                             # 添加所有修改文件
 git commit -m "描述本次更新的内容"      # 提交修改
-git push                              # 推送到远程仓库
+git push -u origin main              # 推送到远程仓库
 ```
 
 ---
