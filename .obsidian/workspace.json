@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Git_UploadProcess.md",
+                "file": "Git/Git_UploadProcess_detailed.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Git_UploadProcess"
+              "title": "Git_UploadProcess_detailed"
             }
           }
         ]
@@ -168,11 +168,13 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "c6bd8d942c4352c1",
+  "active": "bf0b4748ef287741",
   "lastOpenFiles": [
-    "Git_UploadProcess_detailed.md",
-    "Git_UploadProcess.md",
-    "VScode_workspace.md",
+    "VScode",
+    "Git",
+    "Git/Git_UploadProcess.md",
+    "Git/Git_UploadProcess_detailed.md",
+    "VScode/VScode_workspace.md",
     "VScode_Workspace.md",
     "Vscode_Workspace.md",
     "Git_Upload_process.md",

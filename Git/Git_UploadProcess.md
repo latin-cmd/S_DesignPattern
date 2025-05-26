@@ -48,19 +48,19 @@ git push origin feature/功能名             # 推送到远程分支
 
 ## ✅ 四、常用查看命令
 
-|功能|命令|
-|---|---|
-|查看当前状态|`git status`|
-|查看提交历史|`git log` 或 `git log --oneline`|
-|图形化查看提交|`git log --graph --oneline --all`|
-|查看本地分支|`git branch`|
-|查看远程分支|`git branch -r`|
-|查看所有分支|`git branch -a`|
-|查看远程仓库地址|`git remote -v`|
-|查看某文件提交记录|`git log 文件名`|
-|查看某次提交内容|`git show 提交ID`|
-|查看工作区差异|`git diff`|
-|查看暂存区差异|`git diff --cached`|
+| 功能        | 命令                                |
+| --------- | --------------------------------- |
+| 查看当前状态    | `git status`                      |
+| 查看提交历史    | `git log` 或 `git log --oneline`   |
+| 图形化查看提交   | `git log --graph --oneline --all` |
+| 查看本地分支    | `git branch`                      |
+| 查看远程分支    | `git branch -r`                   |
+| 查看所有分支    | `git branch -a`                   |
+| 查看远程仓库地址  | `git remote -v`                   |
+| 查看某文件提交记录 | `git log 文件名`                     |
+| 查看某次提交内容  | `git show 提交ID`                   |
+| 查看工作区差异   | `git diff`                        |
+| 查看暂存区差异   | `git diff --cached`               |
 
 ---
 
