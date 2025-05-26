@@ -1,327 +1,97 @@
-Git 上传代码到远程仓库的基本流程如下，适用于 Git 和 GitHub / Gitee 等远程仓库平台：
+
+# 🚀 Git 更新与上传代码流程整理
 
 ---
 
-### ✅ 一、首次上传（本地项目 ➜ Git 远程仓库）
+## ✅ 一、首次上传项目到远程仓库
 
-1. **初始化 Git 仓库**（如果还没有）
-
-    ```bash
-    git init
-    ```
-
-2. **添加远程仓库地址**
-
-    ```bash
-    git remote add origin <远程仓库地址>
-    ```
-  
-3. **添加所有文件**
-
-    ```bash
-    git add .
-    ```
-
-4. **提交代码**
-
-    ```bash
-    git commit -m "首次提交"
-    ```
-
-5. **推送到远程仓库（首次推送，需指定分支）**
-
-    ```bash
-    git push -u origin master
-    ```
-
-    > 如果是 `main` 分支，则：
-
-    ```bash
-    git push -u origin main
-    ```
-
-
----
-
-### ✅ 二、常规上传流程（更新后继续推送）
-
-当你修改了代码后，执行以下步骤：
-
-1. 查看状态（可选）：
-    
-    ```bash
-    git status
-    ```
-    
-2. 添加改动：
-    
-    ```bash
-    git add .
-    ```
-    
-3. 提交：
-    
-    ```bash
-    git commit -m "更新说明"
-    ```
-    
-4. 推送：
-    
-    ```bash
-    git push
-    ```
-    
-
----
-
-### ✅ 三、常见补充命令
-
-- **克隆远程仓库**
-    
-    ```bash
-    git clone <远程仓库地址>
-    ```
-    
-- **查看当前远程仓库地址**
-    
-    ```bash
-    git remote -v
-    ```
-    
-- **切换分支**
-    
-    ```bash
-    git checkout -b <新分支名>
-    ```
-    
-- **拉取远程分支更新**
-    
-    ```bash
-    git pull origin <分支名>
-    ```
-    
-
----
-
-
-
-## 🧹 一、清理工作目录中未跟踪的文件（即未 `git add` 的）
-
-### 1. 清除未跟踪的文件（不包括 `.gitignore` 忽略的文件）：
+适用于新建项目第一次上传：
 
 ```bash
-git clean -f
-```
-
-### 2. 清除未跟踪的目录：
-
-```bash
-git clean -fd
-```
-
-### 3. 模拟清理（先查看将删除哪些文件，不执行）：
-
-```bash
-git clean -n
+echo "# 项目名" >> README.md          # 初始化说明文件
+git init                              # 初始化本地 Git 仓库
+git add README.md                     # 添加文件
+git commit -m "first commit"          # 提交说明
+git branch -M main                    # 设置分支为 main
+git remote add origin <仓库地址>      # 添加远程地址
+git push -u origin main               # 推送到远程 main 分支
 ```
 
 ---
 
-## 🧹 二、清除修改但未提交的内容（恢复工作区）
+## ✅ 二、常规开发上传流程（已有仓库）
 
-### 1. 撤销对已修改但未添加（`add`）的文件的修改：
-
-```bash
-git checkout -- <文件名>
-```
-
-或恢复所有文件：
+适用于每次开发过程中的代码更新：
 
 ```bash
-git checkout -- .
-```
-
-### 2. 清除已 `add` 但未 `commit` 的内容（即清空暂存区）：
-
-```bash
-git reset
+git pull origin main                  # 拉取远程分支最新代码，避免冲突
+git add .                             # 添加所有修改文件
+git commit -m "描述本次更新的内容"      # 提交修改
+git push                              # 推送到远程仓库
 ```
 
 ---
 
-## 🧹 三、重置 commit（谨慎操作）
-
-### 1. 删除最近一次提交，但保留文件更改：
+## ✅ 三、分支开发推荐流程（多人协作常用）
 
 ```bash
-git reset --soft HEAD~1
-```
-
-### 2. 删除提交及更改（慎用）：
-
-```bash
-git reset --hard HEAD~1
-```
-
----
-
-## 🧹 四、清理合并冲突中遗留的内容
-
-### 清理合并失败的状态：
-
-```bash
-git merge --abort
+git pull origin main                        # 确保主分支是最新的
+git checkout -b feature/功能名             # 创建并切换到新分支
+# 修改、开发中…
+git add .                                   # 添加改动
+git commit -m "开发功能说明"                # 提交修改
+git push origin feature/功能名             # 推送到远程分支
+# 后续可发起 Pull Request 合并到主分支
 ```
 
 ---
 
-## 🧹 五、删除本地和远程分支
+## ✅ 四、常用查看命令
 
-### 删除本地分支：
-
-```bash
-git branch -d <分支名>
-```
-
-### 强制删除本地分支：
-
-```bash
-git branch -D <分支名>
-```
-
-### 删除远程分支：
-
-```bash
-git push origin --delete <分支名>
-```
+|功能|命令|
+|---|---|
+|查看当前状态|`git status`|
+|查看提交历史|`git log` 或 `git log --oneline`|
+|图形化查看提交|`git log --graph --oneline --all`|
+|查看本地分支|`git branch`|
+|查看远程分支|`git branch -r`|
+|查看所有分支|`git branch -a`|
+|查看远程仓库地址|`git remote -v`|
+|查看某文件提交记录|`git log 文件名`|
+|查看某次提交内容|`git show 提交ID`|
+|查看工作区差异|`git diff`|
+|查看暂存区差异|`git diff --cached`|
 
 ---
 
-## 🧹 六、清除 Git 缓存（如 .gitignore 后仍被追踪）
+## 🧹 五、常用清理命令（高级操作）
 
-### 1. 删除缓存并重新添加
-
-```bash
-git rm -r --cached .
-git add .
-git commit -m "清除缓存重新提交"
-```
-
-
-Git 中的“查看”操作主要用于观察项目当前状态、提交历史、远程仓库、分支等内容。以下是最常用的查看命令汇总，分为几类帮你快速掌握：
-
----
-
-## 👀 一、查看项目状态
-
-### 1. 查看当前 Git 状态（最常用）
-
-```bash
-git status
-```
+|场景|命令|
+|---|---|
+|清除未跟踪文件|`git clean -f`|
+|清除未跟踪目录|`git clean -fd`|
+|模拟清除（预览）|`git clean -n`|
+|恢复已修改未提交的文件|`git checkout -- .`|
+|撤销暂存区改动|`git reset`|
+|撤销最近一次提交但保留改动|`git reset --soft HEAD~1`|
+|强制撤销提交及改动|`git reset --hard HEAD~1`|
+|中止合并冲突|`git merge --abort`|
+|删除本地分支|`git branch -d 分支名`|
+|强制删除本地分支|`git branch -D 分支名`|
+|删除远程分支|`git push origin --delete 分支名`|
+|清除 `.gitignore` 后仍被追踪文件|`git rm -r --cached .`|
 
 ---
 
-## 📜 二、查看提交记录
+## 🧠 使用建议
 
-### 1. 简洁查看提交历史
-
-```bash
-git log --oneline
-```
-
-### 2. 查看完整提交记录（默认格式）
-
-```bash
-git log
-```
-
-### 3. 图形化查看提交历史（推荐加 `--all`）
-
-```bash
-git log --graph --oneline --all
-```
-
----
-
-## 🌿 三、查看分支
-
-### 1. 查看本地分支
-
-```bash
-git branch
-```
-
-### 2. 查看远程分支
-
-```bash
-git branch -r
-```
-
-### 3. 查看本地 + 远程分支
-
-```bash
-git branch -a
-```
-
----
-
-## 🌐 四、查看远程仓库信息
-
-### 1. 查看远程地址
-
-```bash
-git remote -v
-```
-
-### 2. 查看远程详细信息
-
-```bash
-git remote show origin
-```
-
----
-
-## 📁 五、查看修改内容（diff）
-
-### 1. 查看工作区中未提交的更改
-
-```bash
-git diff
-```
-
-### 2. 查看已 `add` 到暂存区的更改
-
-```bash
-git diff --cached
-```
-
-### 3. 查看某个文件的更改
-
-```bash
-git diff <文件名>
-```
-
----
-
-## 📌 六、查看某个文件的提交记录
-
-```bash
-git log <文件名>
-```
-
----
-
-## 🧾 七、查看某次提交具体改动
-
-### 方式一：根据 commit hash 查看
-
-```bash
-git show <commit_id>
-```
-
-### 方式二：图形化工具查看（如 `tig`，需安装）
-
-```bash
-tig
-```
+- 每次开发前先拉取主分支代码（`git pull`）；
+    
+- 每项新功能使用独立分支（`feature/xxx`）；
+    
+- 提交信息要清晰、具备描述性；
+    
+- 使用 `git status` 和 `git log` 随时掌握项目状态；
+    
+- 慎用 `reset --hard`，操作前建议备份；
+    
