@@ -1,9 +1,43 @@
 ## VS Code Workspace（工作区）简介
+
 主要目的：分割语言环境，块化扩展，dev_containers的代替方案
 ### 什么是 VS Code 工作区？
+
 https://code.visualstudio.com/docs/editing/workspaces/workspaces
 VS Code 工作区是 Visual Studio Code 用来管理项目设置、文件和文件夹的一种机制。它可以帮助你更好地组织和配置你的开发环境，尤其适合多文件夹、多项目的情况。
 
+```json
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "[python]": {
+      "editor.formatOnSave": true,
+      "python.linting.enabled": true,
+      "python.linting.pylintEnabled": true
+    },
+    "[sql]": {
+      "editor.defaultFormatter": "mtxr.sqltools"
+    },
+    "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-python.python",
+      "ms-python.vscode-pylance",
+      "mtxr.sqltools",
+      "esbenp.prettier-vscode"
+    ],
+    "unwantedRecommendations": [
+    ]
+  }
+} 
+```
 ---
 
 ### 工作区的类型

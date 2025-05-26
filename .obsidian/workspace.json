@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Git/Git_UploadProcess_detailed.md",
+                "file": "VScode/VScode_workspace.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Git_UploadProcess_detailed"
+              "title": "VScode_workspace"
             }
           }
         ]
@@ -168,14 +168,15 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "bf0b4748ef287741",
+  "active": "c6bd8d942c4352c1",
   "lastOpenFiles": [
+    "Git/Git_UploadProcess.md",
+    "VScode/VScode_workspace.md",
+    "Git/Git_UploadProcess_detailed.md",
+    "Git_UploadProcess.md",
     "S_DesignPattern.rar",
     "VScode",
     "Git",
-    "Git/Git_UploadProcess.md",
-    "Git/Git_UploadProcess_detailed.md",
-    "VScode/VScode_workspace.md",
     "VScode_Workspace.md",
     "Vscode_Workspace.md",
     "Git_Upload_process.md",
